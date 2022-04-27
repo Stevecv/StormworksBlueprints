@@ -6,8 +6,14 @@ public class GenerateFile {
     /*
     Adds a block to the code
      */
-    public void addBlock(String x, String z) {
-        String block = "<c><o r=\"1,0,0,0,1,0,0,0,1\" sc=\"6\"><vp x=\"Xv\" y=\"0\" z=\"Zv\"/></o></c>";
+    public void addBlock(String x, String z, int r, int g, int b) {
+        String block;
+        if (!Main.colour) {
+            block = "<c><o r=\"1,0,0,0,1,0,0,0,1\" sc=\"6\"><vp x=\"Xv\" y=\"0\" z=\"Zv\"/></o></c>";
+        } else {
+            String colourCode = String.format("%02x%02x%02x", r, g, b);
+            block = "<c><o r=\"1,0,0,0,1,0,0,0,1\" bc=\"" + colourCode + "\" ac=\"" + colourCode + "\" sc=\"6\"> sc=\"6\"><vp x=\"Xv\" y=\"0\" z=\"Zv\"/></o></c>";
+        }
 
         block = block
                 .replace("Xv", x)

@@ -29,8 +29,8 @@ public class Image {
                 int b = c.getBlue();
 
                 //Check if the pixel is a black line
-                if(r <= 245 && g <= 245 && b <= 245) {
-                    new GenerateFile().addBlock(String.valueOf(x), String.valueOf(y));
+                if(r <= 245 && g <= 245 && b <= 245 || Main.ignoreWhite) {
+                    new GenerateFile().addBlock(String.valueOf(x-100), String.valueOf(y), r, g, b);
                 }
             }
         }
